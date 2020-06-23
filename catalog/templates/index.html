@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Local Kino Resource</h1>
+  <p>Welcome to Kino, a website developed by <em>Bri, raul</em>!</p>
+  <p>The Kino manager has the following record counts:</p>
+  <div class="films-container">
+    {% for film in films %}
+    <div class="film-container">
+      <h1 class="film-title"> {{ film.title }}</h1>
+      <img class="film-poster" src="{{ film.poster }}">
+      <p class="genre-text"><strong>Genre:</strong> {{ film.genre }}</p>
+      <p class="description-text">{{ film.description }}</p>
+    </div>
+  {% endfor %}
+  </div>
+
+{% endblock %}
