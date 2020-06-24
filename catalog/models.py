@@ -8,6 +8,8 @@ class Film(models.Model):
     genre = models.CharField(max_length=20)
     description = models.CharField(max_length=500)
     poster = models.CharField(max_length=500)
+    year = models.IntegerField()
+    director = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
@@ -24,9 +26,10 @@ class FilmRating(models.Model):
 
 class UserList(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    list_name = models.CharField(max_length=100)
 
     def __str__(self):
-        return str(self.user_id) + "'s list " + str(self.pk)
+        return str(self.user_id) + "'s list: " + str(self.list_name)
 
 
 class FilmList(models.Model):

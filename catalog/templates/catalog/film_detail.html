@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <div class="film-detail-container">
+    <div class="left-half-container">
+      <img class="film-detail-poster" src="{{ film.poster }}">
+    </div>
+    <div class="right-half-container">
+        <h1>{{ film.title }} ({{ film.year }})</h1>
+        <p class="film-detail-genre-text"><strong>Genre:</strong> {{ film.genre }}</p>
+        <p class="film-detail-director-text"><strong>Director:</strong> {{ film.director }}</p>
+        <p class="film-detail-description-text">{{ film.description }}</p>
+
+        <p>{{ rating }}</p>
+        <div class="rate">
+
+          <input type="radio" id="star5" name="rate" value="5" {% if rating == 5 %}} checked {% endif %} />
+          <label for="star5" title="text">5 stars</label>
+          <input type="radio" id="star4" name="rate" value="4" {% if rating == 4 %}} checked {% endif %} />
+          <label for="star4" title="text">4 stars</label>
+          <input type="radio" id="star3" name="rate" value="3" {% if rating == 3 %}} checked {% endif %}/>
+          <label for="star3" title="text">3 stars</label>
+          <input type="radio" id="star2" name="rate" value="2" {% if rating == 2 %}} checked {% endif %}/>
+          <label for="star2" title="text">2 stars</label>
+          <input type="radio" id="star1" name="rate" value="1" {% if rating == 1 %}} checked {% endif %}/>
+          <label for="star1" title="text">1 star</label>
+        </div>
+    </div>
+  </div>
+{% endblock %}
