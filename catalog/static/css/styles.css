@@ -1,3 +1,7 @@
+body {
+    background-color: #17130e;
+    color: #faf3eb;
+}
 .sidebar-nav {
     margin-top: 20px;
     padding: 0;
@@ -5,9 +9,21 @@
 }
 
 .films-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-row-gap: 1.66%;
+    grid-column-gap: 1.66%;
+    padding-bottom: 40px;
+}
+@media only screen and (max-width: 1350px) {
+  .films-container {
+    grid-template-columns: 26.66% 26.66% 26.67%;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .films-container {
+    grid-template-columns: 40% 40%;
+  }
 }
 
 .film-title {
@@ -22,15 +38,46 @@
 }
 
 .film-poster {
-    max-height: 350px;
+    width: 240px;
+    height: 380px;
+    border-radius: 15px;
+    padding: 10px;
+    object-fit: cover;
+    vertical-align: middle;
 
+    float: left;
+}
+@media only screen and (max-width: 1350px) {
+  .film-poster {
+    width: 180px;
+    height: 290px;
+  }
 }
 
-.film-container {
+
+.film-container, .film-container-watchlist  {
+    height: 100%;
     display: flex;
     padding: 10px;
     flex-direction: column;
+    border: 1px solid rgba(128, 128, 128, 0);
+    border-radius: 10px;
+    color: #faf3eb;
+    font-weight: 500;
+    background-color: #2d271e;
+    align-items: center;
 }
+.film-container {
+    justify-content: flex-start;
+}
+.film-container-watchlist {
+    justify-content: space-between;
+}
+
+.film-container:hover {
+    background-color: #493d27;
+}
+
 .film-detail-container {
     width: 100%;
     display: flex;
@@ -47,8 +94,10 @@
     flex-direction: column;
 }
 .film-detail-poster {
-    width: 100%;
-    padding: 10px;
+    width: 90%;
+    margin-top: 20px;
+    border-radius: 30px;
+    border: solid 1px #fafafa;
 }
 
 .film-detail-genre-text, .film-detail-description-text {
@@ -92,4 +141,49 @@
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
     color: #154c78;
+}
+.home-title{
+    margin-top: 12px;
+}
+.watchlist-title{
+    margin-top: 12px;
+}
+.no-watchlists-container{
+    display: flex;
+}
+.no-watchlists-text{
+    align-self: center;
+}
+.add-button {
+    margin-left: 10px;
+    margin-right: 5px;
+    padding-bottom: 5px;
+    width: 30px;
+}
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+}
+.edit-button, .delete-button {
+    width: 30px;
+    margin-left: 20px;
+}
+.edit-button:hover, .delete-button:hover, .delete-film-button:hover {
+    opacity: 0.5;
+}
+.options-container {
+    display: flex;
+    margin-top: 10px;
+}
+.edit-watchlist-name{
+    margin-top: 32px;
+}
+.delete-film-form{
+    margin-top: 10px;
+    align-self: center;
+}
+.delete-film-button {
+    width: 23px;
 }

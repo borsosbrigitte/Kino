@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+{% load static %}
+<h1 class="watchlist-title">Edit Watchlist Name</h1>
+<form class="edit-watchlist-name" action="{% url 'edit_watchlist_name' watchlist.pk %}" method="post">
+    {% csrf_token %}
+    <img class="edit-button" src="{% static 'edit.png' %}">
+    <input id="watchlist_name" type="text" name="name_field" placeholder="{{ watchlist.list_name }}">
+    <input type="submit" value="Save">
+</form>
+
+{% endblock %}
