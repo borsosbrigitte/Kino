@@ -10,15 +10,15 @@
         <a href="{{ watchlist.pk }}">{{ watchlist.list_name }}</a>
       </li>
     {% endfor %}
-
   </ul>
   {% else %}
       <p class="no-watchlists-text">You have not created any watchlists yet. Create one here:</p>
-{% endif %}
-      <form action="/watchlists/" method="post">
-        {% csrf_token %}
-        <img class="add-button" src="{% static 'film.png' %}">
-        <input id="watchlist_name" type="text" name="name_field" placeholder="New Watchlist">
-        <input type="submit" value="Create">
-      </form>
+  {% endif %}
+
+  <form action="/watchlists/" method="post">
+    {% csrf_token %}
+    <img class="add-button" src="{% static 'film.png' %}">
+    <input id="watchlist_name" type="text" name="name_field" placeholder="New Watchlist">
+    <input class="brown-btn" type="submit" value="Create">
+  </form>
 {% endblock %}

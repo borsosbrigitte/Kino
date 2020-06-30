@@ -2,18 +2,43 @@ body {
     background-color: #17130e;
     color: #faf3eb;
 }
+a {
+    color: #d0b37f;
+}
+
+a:hover {
+    color: #d58f0d;
+}
 .sidebar-nav {
     margin-top: 20px;
     padding: 0;
     list-style: none;
 }
+.login-form {
+    padding-top: 20px;
+}
+
+.brown-btn {
+    background-color: #2d271e;
+    color: #fafafa;
+    border: 1px solid #fafafa;
+    border-radius: 7px;
+    font-size: 14px;
+    padding: 5px 15px;
+}
+.brown-btn:hover {
+    background-color: #493d27;
+    cursor: pointer;
+}
 
 .films-container {
+    height: 100%;
     display: grid;
     grid-template-columns: 20% 20% 20% 20%;
     grid-row-gap: 1.66%;
     grid-column-gap: 1.66%;
     padding-bottom: 40px;
+    margin-bottom: 40px;
 }
 @media only screen and (max-width: 1350px) {
   .films-container {
@@ -29,6 +54,12 @@ body {
 .film-title {
     text-align: center;
     font-size: 26px;
+}
+.film-year {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 100;
+    margin: -5px 0 0 0;
 }
 
 .genre-text, .description-text {
@@ -111,12 +142,13 @@ body {
     float: left;
     height: 46px;
     padding: 0 10px;
+    text-align: center;
 }
-.rate:not(:checked) > input {
+.rate:not(:checked) > div > .rate-input  {
     position:absolute;
     top:-9999px;
 }
-.rate:not(:checked) > label {
+.rate:not(:checked) > div > label {
     float:right;
     width:1em;
     overflow:hidden;
@@ -125,22 +157,30 @@ body {
     font-size:30px;
     color:#ccc;
 }
-.rate:not(:checked) > label:before {
+.rate:not(:checked) > div > label:before {
     content: '★ ';
 }
-.rate > input:checked ~ label {
-    color: #4e67f3;
+.rate > div > input:checked ~ label {
+    color: #c7b015;
 }
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #a1b1e5;
+.rate:not(:checked) > div > label:hover,
+.rate:not(:checked) > div > label:hover ~ label {
+    color: #726609;
 }
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #154c78;
+.rate > div > input:checked + label:hover,
+.rate > div > input:checked + label:hover ~ label,
+.rate > div > input:checked ~ label:hover,
+.rate > div > input:checked ~ label:hover ~ label,
+.rate > div > label:hover ~ input:checked ~ label {
+    color: #726609;
+}
+
+.submit-rating {
+    align-self: center;
+}
+
+.add-film-watchlist-form {
+    margin-top: 100px;
 }
 .home-title{
     margin-top: 12px;
@@ -186,4 +226,7 @@ body {
 }
 .delete-film-button {
     width: 23px;
+}
+.empty-watchlist-message {
+    width: 500px;
 }

@@ -8,7 +8,7 @@
     {% csrf_token %}
     <img class="edit-button" src="{% static 'edit.png' %}">
     <input id="watchlist_name" type="text" name="name_field" placeholder="{{ watchlist.list_name }}">
-    <input type="submit" value="Save">
+    <input class="brown-btn" type="submit" value="Save">
 </form>
 
 {% endblock %}

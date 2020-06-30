@@ -11,26 +11,26 @@
       <form action="{% url 'delete_watchlist' watchlist.pk %}" method="post">
         {% csrf_token %}
         <input type="image" class="delete-button" name=submit" src="{% static 'trash.png' %}">
-
       </form>
     </div>
   </div>
-    <div class="films-container">
+
+  <div class="films-container">
     {% if films %}
       {% for film in films %}
       <div class="film-container-watchlist">
-        <h1 class="film-title"> {{ film.title }} ({{ film.year }})</h1>
+        <h1 class="film-title"> {{ film.title }}</h1>
         <a href="../film/{{ film.pk }}">
           <img class="film-poster" src="{{ film.poster }}">
         </a>
         <form class="delete-film-form" action="{% url 'delete_watchlist_film' watchlist.pk film.pk %}" method="post">
           {% csrf_token %}
-            <input type="image" class="delete-film-button" name=submit" src="{% static 'delete.png' %}">
+          <input type="image" class="delete-film-button" name=submit" src="{% static 'delete.png' %}">
         </form>
       </div>
       {% endfor %}
     {% else %}
-      <p>This watchlist is empty. You can add more films from each film's respective page.</p>
+      <p class="empty-watchlist-message">This watchlist is empty. You can add more films from each film's respective page.</p>
     {% endif %}
   </div>
 
